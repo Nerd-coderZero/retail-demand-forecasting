@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forecast-api
+  namespace: demand-forecast
+  labels:
+    app: forecast-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forecast-api
+  template:
+    metadata:
+      labels:
+        app: forecast-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: forecast-api
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+      initContainers:
+        # mlflow writes registered_model_meta into the model directory on every load,
+        # so the baked store is copied into a writable volume before the service starts.
+        - name: seed-model-store
+          image: retail-demand-api:1.0.0
+          imagePullPolicy: IfNotPresent
+          command: ["sh", "-c", "cp -r /app/model_store/. /seed/ && find /seed -mindepth 1 -exec chmod u+w {} + && ls -l /seed"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: model-store
+              mountPath: /seed
+      containers:
+        - name: api
+          image: retail-demand-api:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: TMPDIR
+              value: /tmp
+            - name: HOME
+              value: /home/forecast
+          envFrom:
+            - configMapRef:
+                name: forecast-api-config
+          resources:
+            requests:
+              cpu: "1"
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          startupProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            periodSeconds: 5
+            failureThreshold: 24
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 20
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: model-store
+              mountPath: /app/model_store
+            - name: tmp
+              mountPath: /tmp
+            - name: home
+              mountPath: /home/forecast
+      volumes:
+        - name: model-store
+          emptyDir:
+            sizeLimit: 256Mi
+        - name: tmp
+          emptyDir: {}
+        - name: home
+          emptyDir: {}

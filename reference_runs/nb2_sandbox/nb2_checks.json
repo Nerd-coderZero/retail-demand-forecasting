@@ -1,0 +1,132 @@
+{
+  "checks": {
+    "test_demand_features.py passes": {
+      "passed": true,
+      "detail": null
+    },
+    "test_demand_model.py passes": {
+      "passed": true,
+      "detail": null
+    },
+    "train row count": {
+      "passed": true,
+      "detail": 4500000
+    },
+    "eval row count": {
+      "passed": true,
+      "detail": 350000
+    },
+    "no nulls": {
+      "passed": true,
+      "detail": null
+    },
+    "combined panel is complete": {
+      "passed": true,
+      "detail": [
+        50000,
+        97
+      ]
+    },
+    "split dates": {
+      "passed": true,
+      "detail": {
+        "fit_target_days": [
+          "2024-05-01",
+          "2024-06-18"
+        ],
+        "validation_days": [
+          "2024-06-19",
+          "2024-06-25"
+        ],
+        "final_train_target_days": [
+          "2024-05-01",
+          "2024-06-25"
+        ],
+        "eval_days": [
+          "2024-06-26",
+          "2024-07-02"
+        ],
+        "first_train_day_reason": "first day with a complete 34-day feature history"
+      }
+    },
+    "feature rows are series-major and aligned with the panel": {
+      "passed": true,
+      "detail": null
+    },
+    "validation week features identical with realized data masked from 2024-06-19": {
+      "passed": true,
+      "detail": "350,000 rows"
+    },
+    "eval week features identical with realized data masked from 2024-06-26": {
+      "passed": true,
+      "detail": "350,000 rows"
+    },
+    "no missing feature values on any training, validation or eval row": {
+      "passed": true,
+      "detail": null
+    },
+    "row counts": {
+      "passed": true,
+      "detail": {
+        "fit": 2450000,
+        "validation": 350000,
+        "final_train": 2800000,
+        "eval": 350000
+      }
+    },
+    "seasonal_naive_7 reproduces notebook 1 validation metrics": {
+      "passed": true,
+      "detail": {
+        "wape": 0.412392,
+        "wpe": -0.115869,
+        "mae": 0.49337,
+        "rmse": 0.828341
+      }
+    },
+    "moving_average_7 reproduces notebook 1 validation metrics": {
+      "passed": true,
+      "detail": {
+        "wape": 0.365639,
+        "wpe": -0.115869,
+        "mae": 0.437436,
+        "rmse": 0.738743
+      }
+    },
+    "same_dow_mean_4w reproduces notebook 1 validation metrics": {
+      "passed": true,
+      "detail": {
+        "wape": 0.390235,
+        "wpe": -0.123295,
+        "mae": 0.466862,
+        "rmse": 0.798625
+      }
+    },
+    "serving parity: reloaded model on 34-day history reproduces eval predictions exactly": {
+      "passed": true,
+      "detail": "350,000 predictions"
+    },
+    "snapshot alone produces complete features and finite predictions for the next 7 days": {
+      "passed": true,
+      "detail": "350,000 rows, dates 2024-07-03..2024-07-09, activity_flag=0, holiday_flag=weekend"
+    }
+  },
+  "split": {
+    "fit_target_days": [
+      "2024-05-01",
+      "2024-06-18"
+    ],
+    "validation_days": [
+      "2024-06-19",
+      "2024-06-25"
+    ],
+    "final_train_target_days": [
+      "2024-05-01",
+      "2024-06-25"
+    ],
+    "eval_days": [
+      "2024-06-26",
+      "2024-07-02"
+    ],
+    "first_train_day_reason": "first day with a complete 34-day feature history"
+  }
+}

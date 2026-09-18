@@ -1,0 +1,11 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+prometheus-client==0.21.1
+mlflow-skinny==3.16.1
+sqlalchemy==2.0.36
+alembic==1.14.0
+lightgbm==4.6.0
+pandas==2.3.3
+numpy==2.0.2
+pyarrow==18.1.0

@@ -1,0 +1,65 @@
+{
+  "label": "sandbox-batching-on",
+  "host": "http://127.0.0.1:8000",
+  "users": 20,
+  "run_time": "45s",
+  "batching": {
+    "enabled": true,
+    "max_batch_size": 32,
+    "max_batch_wait_ms": 10
+  },
+  "model_version": 1,
+  "requests": 8316,
+  "failures": 0,
+  "requests_per_second": 188.66784226554648,
+  "latency_ms": {
+    "p50": 96.0,
+    "p95": 220.0,
+    "p99": 280.0,
+    "mean": 103.78235196007638,
+    "max": 307.5121860000536
+  },
+  "per_endpoint": [
+    {
+      "name": "/model",
+      "requests": 10,
+      "p50": 12.0,
+      "p95": 15.0,
+      "p99": 15.0
+    },
+    {
+      "name": "/predict bulk x50",
+      "requests": 805,
+      "p50": 120.0,
+      "p95": 240.0,
+      "p99": 300.0
+    },
+    {
+      "name": "/predict single",
+      "requests": 7501,
+      "p50": 95.0,
+      "p95": 210.0,
+      "p99": 260.0
+    }
+  ],
+  "server": {
+    "batch_size_mean": 19.480459770114944,
+    "model_calls": 435.0,
+    "feature_build": {
+      "calls": 435.0,
+      "seconds": 9.987840496997705,
+      "mean_seconds": 0.02296055286666139
+    },
+    "model_predict": {
+      "calls": 435.0,
+      "seconds": 22.225708893998444,
+      "mean_seconds": 0.05109358366436424
+    },
+    "batch_wait": {
+      "calls": 435.0,
+      "seconds": 5.600144554999929,
+      "mean_seconds": 0.012873895528735468
+    },
+    "forecast_rows": 48801.0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "pyarrow": "24.0.0",
+  "lightgbm": "4.6.0",
+  "on_kaggle": true,
+  "module_sha256": {
+    "demand_features.py": "9d87a85439ad1d16c05ecaba8ae794375ec943201831ac05e1518c3719a18868",
+    "demand_eval.py": "e38581959bae05612e7114667cc01e9494218eb2e825e3af4218366cfc3e4ecf",
+    "demand_model.py": "abd841766f7ee76c59154c195f72d77160ebe16e0e17f24321cd132af86fe36d"
+  }
+}

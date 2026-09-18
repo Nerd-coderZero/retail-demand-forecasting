@@ -1,0 +1,288 @@
+{
+  "dataset": {
+    "repo": "Dingdong-Inc/FreshRetailNet-50K",
+    "revision": "08c1fab7f9257bc73679d415d65d644165d351d4"
+  },
+  "checks": {
+    "train and eval schemas identical": {
+      "passed": true,
+      "detail": null
+    },
+    "train row count": {
+      "passed": true,
+      "detail": 4500000
+    },
+    "eval row count": {
+      "passed": true,
+      "detail": 350000
+    },
+    "no nulls in train scalar columns": {
+      "passed": true,
+      "detail": null
+    },
+    "no nulls in eval scalar columns (including eval sale_amount)": {
+      "passed": true,
+      "detail": null
+    },
+    "train: no duplicate (store, product, dt)": {
+      "passed": true,
+      "detail": null
+    },
+    "eval: no duplicate (store, product, dt)": {
+      "passed": true,
+      "detail": null
+    },
+    "series count train": {
+      "passed": true,
+      "detail": 50000
+    },
+    "same series set in train and eval": {
+      "passed": true,
+      "detail": null
+    },
+    "train dates contiguous": {
+      "passed": true,
+      "detail": "2024-03-28..2024-06-25 (90 days)"
+    },
+    "eval dates contiguous": {
+      "passed": true,
+      "detail": "2024-06-26..2024-07-02 (7 days)"
+    },
+    "eval horizon equals forecast horizon": {
+      "passed": true,
+      "detail": null
+    },
+    "eval starts the day after train ends": {
+      "passed": true,
+      "detail": null
+    },
+    "complete train panel": {
+      "passed": true,
+      "detail": null
+    },
+    "complete eval panel": {
+      "passed": true,
+      "detail": null
+    },
+    "static attributes constant per series": {
+      "passed": true,
+      "detail": null
+    },
+    "city constant per store": {
+      "passed": true,
+      "detail": null
+    },
+    "category and management group constant per product": {
+      "passed": true,
+      "detail": null
+    },
+    "holiday_flag constant per date": {
+      "passed": true,
+      "detail": null
+    },
+    "weather constant per store and date": {
+      "passed": true,
+      "detail": null
+    },
+    "sale_amount non-negative": {
+      "passed": true,
+      "detail": null
+    },
+    "stock_hour6_22_cnt within 0..16": {
+      "passed": true,
+      "detail": null
+    },
+    "activity_flag and holiday_flag binary": {
+      "passed": true,
+      "detail": null
+    },
+    "all hourly lists have 24 values": {
+      "passed": true,
+      "detail": null
+    },
+    "sale_amount equals sum of hours_sale": {
+      "passed": true,
+      "detail": "0 mismatches in 4,500,000 rows"
+    },
+    "stock_hour6_22_cnt equals stockout hours 6..21": {
+      "passed": true,
+      "detail": "0 mismatches"
+    },
+    "stock status values are 0/1": {
+      "passed": true,
+      "detail": [
+        0,
+        1
+      ]
+    },
+    "status 1 hours sell less than status 0 hours": {
+      "passed": true,
+      "detail": "mean hourly sales status0=0.0540 status1=0.0042"
+    },
+    "synthetic unit tests pass": {
+      "passed": true,
+      "detail": null
+    },
+    "validation window indices": {
+      "passed": true,
+      "detail": [
+        83,
+        90
+      ]
+    },
+    "[none] validation-day features unchanged when realized validation data is masked": {
+      "passed": true,
+      "detail": "28 feature arrays compared"
+    },
+    "[none] validation-day features unchanged when realized validation data is perturbed": {
+      "passed": true,
+      "detail": "28 feature arrays compared"
+    },
+    "[oracle] validation-day features unchanged when realized validation data is masked": {
+      "passed": true,
+      "detail": "28 feature arrays compared"
+    },
+    "[oracle] validation-day features unchanged when realized validation data is perturbed": {
+      "passed": true,
+      "detail": "28 feature arrays compared"
+    },
+    "[oracle] oracle weather columns do read same-day weather (labelled exception)": {
+      "passed": true,
+      "detail": null
+    },
+    "positive control: origin-day change reaches sales_lag_7 on the last validation day": {
+      "passed": true,
+      "detail": null
+    },
+    "positive control: origin-day change does not reach any feature on the first validation day": {
+      "passed": true,
+      "detail": null
+    },
+    "serving parity: last REQUIRED_HISTORY_DAYS of history reproduce validation features exactly": {
+      "passed": true,
+      "detail": "REQUIRED_HISTORY_DAYS=34, rows=350,000"
+    }
+  },
+  "shape": {
+    "train_rows": 4500000,
+    "eval_rows": 350000,
+    "series": 50000,
+    "stores": 898,
+    "products": 865,
+    "cities": 18,
+    "train_dates": [
+      "2024-03-28",
+      "2024-06-25"
+    ],
+    "eval_dates": [
+      "2024-06-26",
+      "2024-07-02"
+    ]
+  },
+  "hourly_semantics": {
+    "rows_checked": 4500000,
+    "mean_hourly_sales_in_stock": 0.0540006810348989,
+    "mean_hourly_sales_out_of_stock": 0.004201877416338882
+  },
+  "eda": {
+    "zero_sales_share": 0.04461333333333333,
+    "rows_with_any_stockout_hour_share": 0.442668,
+    "rows_full_day_stockout_share": 0.040398,
+    "activity_flag_share": 0.3784206666666667,
+    "holiday_date_count": 31,
+    "mean_sales_by_day_of_week": {
+      "0": 0.9426,
+      "1": 0.962,
+      "2": 0.9069,
+      "3": 0.866,
+      "4": 0.9268,
+      "5": 1.1781,
+      "6": 1.2007
+    },
+    "mean_sales_by_holiday_flag": {
+      "0": 0.914,
+      "1": 1.1596
+    },
+    "mean_sales_by_activity_flag": {
+      "0": 0.9897,
+      "1": 1.0133
+    },
+    "mean_sales_by_stockout_hours": {
+      "0": 0.9745,
+      "1": 1.3503,
+      "2": 1.4827,
+      "3": 1.4307,
+      "4": 1.3396,
+      "5": 1.2431,
+      "6": 1.1512,
+      "7": 1.085,
+      "8": 1.0381,
+      "9": 0.9599,
+      "10": 0.8806,
+      "11": 0.7693,
+      "12": 0.6559,
+      "13": 0.5919,
+      "14": 0.4624,
+      "15": 0.3286,
+      "16": 0.046
+    },
+    "sale_amount_quantiles": {
+      "0.5": 0.7,
+      "0.9": 2.0,
+      "0.99": 5.8,
+      "1.0": 44.9
+    },
+    "mean_sales_by_discount_bin": {
+      "<=0.5": 7.0687,
+      "0.5-0.7": 1.354,
+      "0.7-0.9": 0.9978,
+      "0.9-0.99": 0.9388,
+      "0.99-1.0": 0.8647,
+      ">1.0": 0.6353
+    },
+    "rows_by_discount_bin": {
+      "<=0.5": 39631,
+      "0.5-0.7": 279313,
+      "0.7-0.9": 1290477,
+      "0.9-0.99": 650049,
+      "0.99-1.0": 2240496,
+      ">1.0": 34
+    }
+  },
+  "discount_evidence": {
+    "share_discount_eq_1_on_zero_sale_days": 0.6570382546323968,
+    "share_discount_eq_1_on_positive_sale_days": 0.4766456396944576,
+    "share_discount_eq_1_on_full_stockout_days": 0.6442838204311545,
+    "rows_discount_eq_0": 16039,
+    "rows_discount_gt_1": 34,
+    "distinct_discount_values_per_series_median": 15.0
+  },
+  "calendar_evidence": {
+    "weekday_dates_flagged_holiday": [
+      "2024-04-04",
+      "2024-04-05",
+      "2024-05-01",
+      "2024-05-02",
+      "2024-05-03",
+      "2024-06-10"
+    ],
+    "weekend_dates_not_flagged": [
+      "2024-04-07"
+    ]
+  },
+  "split": {
+    "fit": [
+      "2024-03-28",
+      "2024-06-18"
+    ],
+    "validation": [
+      "2024-06-19",
+      "2024-06-25"
+    ],
+    "eval": [
+      "2024-06-26",
+      "2024-07-02"
+    ],
+    "horizon_days": 7
+  }
+}

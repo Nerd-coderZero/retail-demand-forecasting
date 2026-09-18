@@ -1,0 +1,101 @@
+{
+  "dataset": {
+    "repo": "Dingdong-Inc/FreshRetailNet-50K",
+    "revision": "08c1fab7f9257bc73679d415d65d644165d351d4",
+    "license": "CC BY 4.0"
+  },
+  "served_run": "l1_no_same_day_discount",
+  "comparison_run": "l1",
+  "objective": "l1",
+  "params": {
+    "metric": "l1",
+    "learning_rate": 0.05,
+    "num_leaves": 255,
+    "min_data_in_leaf": 100,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "max_bin": 255,
+    "seed": 20240626,
+    "deterministic": true,
+    "force_row_wise": true,
+    "num_threads": 4,
+    "verbose": -1,
+    "objective": "regression_l1"
+  },
+  "num_boost_round": 381,
+  "feature_columns": [
+    "city_id",
+    "store_id",
+    "management_group_id",
+    "first_category_id",
+    "second_category_id",
+    "third_category_id",
+    "product_id",
+    "day_of_week",
+    "activity_flag",
+    "holiday_flag",
+    "sales_lag_7",
+    "sales_lag_8",
+    "sales_lag_9",
+    "sales_lag_10",
+    "sales_lag_11",
+    "sales_lag_12",
+    "sales_lag_13",
+    "sales_lag_14",
+    "sales_lag_21",
+    "sales_lag_28",
+    "sales_mean_7_off7",
+    "sales_mean_14_off7",
+    "sales_mean_28_off7",
+    "sales_std_7_off7",
+    "sales_std_28_off7",
+    "sales_same_dow_mean_4w",
+    "sales_zero_share_28_off7",
+    "stock_hours_lag_7",
+    "stock_hours_mean_7_off7",
+    "stock_hours_mean_28_off7",
+    "stock_fullday_share_28_off7",
+    "discount_mean_7_off7",
+    "activity_share_28_off7"
+  ],
+  "categorical_features": [
+    "city_id",
+    "store_id",
+    "management_group_id",
+    "first_category_id",
+    "second_category_id",
+    "third_category_id",
+    "product_id",
+    "day_of_week"
+  ],
+  "same_day_discount": false,
+  "weather_mode": "none",
+  "horizon_days": 7,
+  "min_lag_days": 7,
+  "required_history_days": 34,
+  "train_target_days": [
+    "2024-05-01",
+    "2024-06-25"
+  ],
+  "prediction_clip_min": 0.0,
+  "model_files": {
+    "lgbm_served.txt": "eacdebeed7b701f90b5b641e0cff9a6348019f3a240b847ab109d35aefaab40a",
+    "lgbm_comparison_with_same_day_discount.txt": "64867695df8fd65a5ccf017ed7aeb398383d542eeeea2765f222edb3052d8d1b"
+  },
+  "eval_metrics_served": {
+    "n": 350000,
+    "sum_actual": 417568.5229999999,
+    "wape": 0.33168907433084976,
+    "wpe": -0.03410891931355602,
+    "mae": 0.3957226196102004,
+    "rmse": 0.6730462614033754
+  },
+  "known_limitations": [
+    "Actuals on stockout days are censored; recorded-sales bias is reported, not corrected.",
+    "Features use history up to t-7 only; the most recent 6 days are unused for near horizons.",
+    "Sales values are normalized by the dataset publisher, so errors are not in physical units.",
+    "Whether same-day discount is known in advance is unverified; the served model excludes it."
+  ]
+}

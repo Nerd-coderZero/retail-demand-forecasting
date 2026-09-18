@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forecast-api-config
+  namespace: demand-forecast
+data:
+  BATCHING_ENABLED: "true"
+  MAX_BATCH_SIZE: "32"
+  MAX_BATCH_WAIT_MS: "10"
+  MAX_ITEMS_PER_REQUEST: "500"
+  LOG_LEVEL: "INFO"

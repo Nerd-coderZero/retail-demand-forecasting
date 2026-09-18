@@ -1,0 +1,13 @@
+{
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+  "numpy": "2.4.4",
+  "pandas": "3.0.2",
+  "pyarrow": "25.0.1",
+  "matplotlib": "3.10.9",
+  "on_kaggle": false,
+  "module_sha256": {
+    "demand_features.py": "9d87a85439ad1d16c05ecaba8ae794375ec943201831ac05e1518c3719a18868",
+    "demand_eval.py": "e38581959bae05612e7114667cc01e9494218eb2e825e3af4218366cfc3e4ecf"
+  }
+}

@@ -1,0 +1,11 @@
+venv/
+mlartifacts/
+mlruns/
+mlflow.db
+notebooks/
+reference_runs/
+Output Files/
+loadtest/results/
+**/__pycache__/
+**/.pytest_cache/
+.git/

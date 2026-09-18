@@ -1,0 +1,14 @@
+{
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+  "numpy": "2.4.4",
+  "pandas": "3.0.2",
+  "pyarrow": "25.0.1",
+  "torch": "2.14.0+cu130",
+  "device": "cpu",
+  "gpu": null,
+  "on_kaggle": false,
+  "context_days": 90,
+  "subset_series": 300,
+  "chronos_forecasting": "2.3.2"
+}

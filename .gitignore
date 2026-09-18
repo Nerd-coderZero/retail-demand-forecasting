@@ -1,0 +1,18 @@
+venv/
+mlflow.db
+mlartifacts/
+mlruns/
+service/model_store/
+service/data/
+loadtest/results/
+loadtest/series_sample.csv
+
+# Kaggle outputs: keep the JSON/CSV evidence, leave the large binaries out.
+# The model file and prediction dumps are reproducible from the notebooks.
+Output Files/**/*.parquet
+Output Files/**/*.txt
+
+**/__pycache__/
+**/.ipynb_checkpoints/
+*.pyc
+.pytest_cache/

@@ -1,0 +1,15 @@
+{
+  "device": "cpu",
+  "cpu": {
+    "series": 64,
+    "seconds": 2.83,
+    "series_per_second": 22.6,
+    "ms_per_series": 44.27
+  },
+  "lightgbm_service_measured": {
+    "throughput_rps": 82.2,
+    "p50_ms": 100.0,
+    "p99_ms": 390.0,
+    "model_predict_ms_per_request": 5.4
+  }
+}

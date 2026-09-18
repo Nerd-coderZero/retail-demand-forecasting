@@ -1,0 +1,5 @@
+mlflow>=3.16.0
+lightgbm==4.6.0
+pandas>=2.2
+pyarrow>=16
+numpy>=1.26

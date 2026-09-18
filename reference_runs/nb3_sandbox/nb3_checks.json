@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "eval window is the 7 days after the training window": {
+      "passed": true,
+      "detail": "2024-06-26..2024-07-02"
+    },
+    "context and future frames cover the same series": {
+      "passed": true,
+      "detail": "300 series, context 27,000 rows, future 2,100 rows"
+    },
+    "context holds the expected number of days per series": {
+      "passed": true,
+      "detail": 90
+    },
+    "a forecast exists for every eval row": {
+      "passed": true,
+      "detail": "2,100 rows"
+    }
+  }
+}

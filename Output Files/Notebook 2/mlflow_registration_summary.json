@@ -1,0 +1,19 @@
+{
+  "tracking_uri": "sqlite:///C:/Users/Admin/Desktop/Claude Code/Projects/Project 4/mlflow.db",
+  "experiment": {
+    "name": "project-4-retail-demand",
+    "id": "1"
+  },
+  "other_experiments": {
+    "Default": "0"
+  },
+  "run_id": "436f5e1369544597a64e5e68c3d74a4c",
+  "model_name": "retail-demand-lgbm",
+  "model_version": 1,
+  "model_uri": "models:/retail-demand-lgbm/1",
+  "logged_model_uri": "models:/m-34b04bfcebbb4b8981d47fbcf1bc2d1f",
+  "model_file_sha256": "eacdebeed7b701f90b5b641e0cff9a6348019f3a240b847ab109d35aefaab40a",
+  "parity_rows": 2000,
+  "parity_exact_match": true,
+  "eval_wape_served": 0.33168907433084976
+}
